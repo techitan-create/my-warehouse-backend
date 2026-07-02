@@ -10,6 +10,8 @@ public class ProductResponseDTO {
     private String description;
     private BigDecimal price;
     private String categoryName;
+    private Integer minStock;
+    private Integer maxStock;
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -20,6 +22,8 @@ public class ProductResponseDTO {
     public String getDescription() { return description; }
     public BigDecimal getPrice() { return price; }
     public String getCategoryName() { return categoryName; }
+    public Integer getMinStock() { return minStock; }
+    public Integer getMaxStock() { return maxStock; }
     public String getStatus() { return status; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
@@ -30,6 +34,8 @@ public class ProductResponseDTO {
     public void setDescription(String description) { this.description = description; }
     public void setPrice(BigDecimal price) { this.price = price; }
     public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
+    public void setMinStock(Integer minStock) { this.minStock = minStock; }
+    public void setMaxStock(Integer maxStock) { this.maxStock = maxStock; }
     public void setStatus(String status) { this.status = status; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }

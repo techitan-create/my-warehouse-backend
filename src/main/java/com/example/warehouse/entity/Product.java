@@ -25,6 +25,12 @@ public class Product {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
+    @Column(nullable = false)
+    private Integer minStock = 0;
+
+    @Column(nullable = false)
+    private Integer maxStock = 9999;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
@@ -47,6 +53,8 @@ public class Product {
     public BigDecimal getPrice() { return price; }
     public Category getCategory() { return category; }
     public ProductStatus getStatus() { return status; }
+    public Integer getMinStock() { return minStock; }
+    public Integer getMaxStock() { return maxStock; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
 
@@ -55,6 +63,8 @@ public class Product {
     public void setName(String name) { this.name = name; }
     public void setDescription(String description) { this.description = description; }
     public void setPrice(BigDecimal price) { this.price = price; }
+    public void setMinStock(Integer minStock) { this.minStock = minStock; }
+    public void setMaxStock(Integer maxStock) { this.maxStock = maxStock; }
     public void setCategory(Category category) { this.category = category; }
     public void setStatus(ProductStatus status) { this.status = status; }
 }

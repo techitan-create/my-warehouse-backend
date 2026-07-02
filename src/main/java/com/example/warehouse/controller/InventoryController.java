@@ -7,7 +7,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -15,12 +14,15 @@ import com.example.warehouse.dto.response.InventoryHealthDTO;
 
 @RestController
 @RequestMapping("/api/v1/inventory")
-@RequiredArgsConstructor
 @Tag(name = "Inventory", description = "จัดการสต็อกสินค้า")
 @SecurityRequirement(name = "Bearer")
 public class InventoryController {
 
     private final InventoryService inventoryService;
+
+    public InventoryController(InventoryService inventoryService) {
+        this.inventoryService = inventoryService;
+    }
 
     @GetMapping
     @Operation(summary = "ดูสต็อกสินค้าทั้งหมด")

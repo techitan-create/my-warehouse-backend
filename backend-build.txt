@@ -1,0 +1,13 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /d:/warehouse-system/warehouse-api/src/main/java/com/example/warehouse/service/ProductService.java:[21,37] variable productRepository not initialized in the default constructor
+[ERROR] /d:/warehouse-system/warehouse-api/src/main/java/com/example/warehouse/service/ProductService.java:[22,38] variable categoryRepository not initialized in the default constructor
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project warehouse-api: Compilation failure: Compilation failure: 
+[ERROR] /d:/warehouse-system/warehouse-api/src/main/java/com/example/warehouse/service/ProductService.java:[21,37] variable productRepository not initialized in the default constructor
+[ERROR] /d:/warehouse-system/warehouse-api/src/main/java/com/example/warehouse/service/ProductService.java:[22,38] variable categoryRepository not initialized in the default constructor
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

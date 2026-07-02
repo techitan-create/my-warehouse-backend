@@ -7,19 +7,21 @@ import com.example.warehouse.repository.WarehouseRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/warehouses")
-@RequiredArgsConstructor
 @Tag(name = "Warehouses", description = "จัดการคลังสินค้า")
 @SecurityRequirement(name = "Bearer")
 public class WarehouseController {
 
     private final WarehouseRepository warehouseRepository;
+
+    public WarehouseController(WarehouseRepository warehouseRepository) {
+        this.warehouseRepository = warehouseRepository;
+    }
 
     @GetMapping
     @Operation(summary = "ดูคลังสินค้าทั้งหมด")

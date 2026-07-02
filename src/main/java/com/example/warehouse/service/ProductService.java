@@ -15,11 +15,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
+
+    public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository) {
+        this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
     // ดูสินค้าทั้งหมด พร้อม Pagination และ Filter
     public PageResponseDTO<ProductResponseDTO> getAll(
@@ -57,6 +61,8 @@ Page<Product> result = (search == null && categoryId == null)
         product.setSku(dto.getSku());
         product.setPrice(dto.getPrice());
         product.setDescription(dto.getDescription());
+        product.setMinStock(dto.getMinStock() != null ? dto.getMinStock() : 0);
+        product.setMaxStock(dto.getMaxStock() != null ? dto.getMaxStock() : 9999);
 
         if (dto.getCategoryId() != null) {
             Category cat = categoryRepository.findById(dto.getCategoryId())
@@ -73,6 +79,8 @@ Page<Product> result = (search == null && categoryId == null)
         product.setName(dto.getName());
         product.setPrice(dto.getPrice());
         product.setDescription(dto.getDescription());
+        product.setMinStock(dto.getMinStock() != null ? dto.getMinStock() : product.getMinStock());
+        product.setMaxStock(dto.getMaxStock() != null ? dto.getMaxStock() : product.getMaxStock());
 
         if (dto.getCategoryId() != null) {
             Category cat = categoryRepository.findById(dto.getCategoryId())
@@ -103,6 +111,8 @@ Page<Product> result = (search == null && categoryId == null)
         dto.setName(p.getName());
         dto.setDescription(p.getDescription());
         dto.setPrice(p.getPrice());
+        dto.setMinStock(p.getMinStock());
+        dto.setMaxStock(p.getMaxStock());
         dto.setStatus(p.getStatus().name());
         dto.setCreatedAt(p.getCreatedAt());
         dto.setUpdatedAt(p.getUpdatedAt());
